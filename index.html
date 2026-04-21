@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Дашборд кейсов доработок</title>
+  <meta
+    name="description"
+    content="Одностраничный каталог кейсов доработок с фильтрами по отрасли, продукту и подразделению."
+  >
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  >
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="page-shell">
+    <header class="hero">
+      <div class="hero__content">
+        <div class="brand-lockup">
+          <img
+            class="brand-lockup__logo"
+            src="./assets/mango-academy-logo.png"
+            alt="Mango Academy"
+          >
+          <div class="brand-lockup__text">
+            <span class="brand-lockup__title">Mango Academy</span>
+          </div>
+        </div>
+        <p class="eyebrow">Каталог доработок</p>
+        <h1>Кейсы по клиентским доработкам</h1>
+      </div>
+      <div class="hero__stats">
+        <div class="stat-card">
+          <span class="stat-card__label">Всего кейсов</span>
+          <strong class="stat-card__value" id="total-count">0</strong>
+        </div>
+        <div class="stat-card">
+          <span class="stat-card__label">Показано</span>
+          <strong class="stat-card__value" id="visible-count">0</strong>
+        </div>
+      </div>
+    </header>
+
+    <main class="layout">
+      <aside class="filters-panel">
+        <div class="panel-heading">
+          <div>
+            <p class="panel-heading__eyebrow">Фильтры</p>
+            <h2>Подбор кейсов</h2>
+          </div>
+          <button class="ghost-button" id="reset-filters" type="button">Сбросить</button>
+        </div>
+
+        <label class="search-box" for="search-input">
+          <span class="search-box__label">Поиск по названию и описанию</span>
+          <input
+            id="search-input"
+            type="search"
+            placeholder="Например: интеграция, витрина, отчёт"
+            autocomplete="off"
+          >
+        </label>
+
+        <div class="filter-groups" id="filter-groups"></div>
+      </aside>
+
+      <section class="results-panel">
+        <div class="results-toolbar">
+          <div>
+            <p class="panel-heading__eyebrow">Результаты</p>
+            <h2>Список доработок</h2>
+          </div>
+          <div class="active-filters" id="active-filters"></div>
+        </div>
+
+        <div class="results-state" id="results-state">Загружаю кейсы…</div>
+        <div class="cards-grid" id="cards-grid" aria-live="polite"></div>
+      </section>
+    </main>
+  </div>
+
+  <template id="case-card-template">
+    <article class="case-card">
+      <div class="case-card__body">
+        <div class="case-card__topline">
+          <p class="case-card__eyebrow">Доработка</p>
+          <a class="case-card__link" target="_blank" rel="noopener noreferrer">Открыть кейс</a>
+        </div>
+        <h3 class="case-card__title"></h3>
+        <p class="case-card__description"></p>
+        <div class="meta-block">
+          <div class="meta-group">
+            <span class="meta-group__label">Отрасли</span>
+            <div class="chips chips--soft" data-field="industries"></div>
+          </div>
+          <div class="meta-group">
+            <span class="meta-group__label">Продукты</span>
+            <div class="chips chips--soft" data-field="products"></div>
+          </div>
+          <div class="meta-group">
+            <span class="meta-group__label">Подразделения</span>
+            <div class="chips chips--soft" data-field="divisions"></div>
+          </div>
+        </div>
+      </div>
+    </article>
+  </template>
+
+  <script src="app.js" defer></script>
+</body>
+</html>
