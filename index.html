@@ -45,8 +45,8 @@
       </div>
     </header>
 
-    <main class="layout">
-      <aside class="filters-panel">
+    <main class="stack-layout">
+      <section class="filters-panel filters-panel--top">
         <div class="panel-heading">
           <div>
             <p class="panel-heading__eyebrow">Фильтры</p>
@@ -66,7 +66,7 @@
         </label>
 
         <div class="filter-groups" id="filter-groups"></div>
-      </aside>
+      </section>
 
       <section class="results-panel">
         <div class="results-toolbar">
@@ -95,15 +95,15 @@
         <div class="meta-block">
           <div class="meta-group">
             <span class="meta-group__label">Отрасли</span>
-            <div class="chips chips--soft" data-field="industries"></div>
+            <p class="meta-group__value" data-field="industries"></p>
           </div>
           <div class="meta-group">
             <span class="meta-group__label">Продукты</span>
-            <div class="chips chips--soft" data-field="products"></div>
+            <p class="meta-group__value" data-field="products"></p>
           </div>
           <div class="meta-group">
             <span class="meta-group__label">Подразделения</span>
-            <div class="chips chips--soft" data-field="divisions"></div>
+            <p class="meta-group__value" data-field="divisions"></p>
           </div>
         </div>
       </div>

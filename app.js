@@ -412,9 +412,9 @@ function renderCards(items) {
     const link = node.querySelector(".case-card__link");
     link.href = item.url;
 
-    fillChips(node, "industries", item.industries);
-    fillChips(node, "products", item.products);
-    fillChips(node, "divisions", item.divisions);
+    fillMetaLine(node, "industries", item.industries);
+    fillMetaLine(node, "products", item.products);
+    fillMetaLine(node, "divisions", item.divisions);
 
     fragment.appendChild(node);
   });
@@ -422,16 +422,9 @@ function renderCards(items) {
   elements.cardsGrid.appendChild(fragment);
 }
 
-function fillChips(node, field, values) {
+function fillMetaLine(node, field, values) {
   const container = node.querySelector(`[data-field="${field}"]`);
-  container.innerHTML = "";
-
-  values.forEach((value) => {
-    const chip = document.createElement("span");
-    chip.className = "chip";
-    chip.textContent = value;
-    container.appendChild(chip);
-  });
+  container.textContent = values.join(", ");
 }
 
 function escapeHtml(value) {
