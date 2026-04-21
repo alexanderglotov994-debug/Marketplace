@@ -13,8 +13,6 @@ const state = {
 };
 
 const elements = {
-  totalCount: document.getElementById("total-count"),
-  visibleCount: document.getElementById("visible-count"),
   searchInput: document.getElementById("search-input"),
   filterGroups: document.getElementById("filter-groups"),
   activeFilters: document.getElementById("active-filters"),
@@ -250,7 +248,6 @@ function createValueCheckbox(key, option) {
     <input data-filter-key="${key}" value="${escapeHtml(option)}" type="checkbox">
     <span class="checkbox-item__text">
       <span class="checkbox-item__label">${escapeHtml(option)}</span>
-      <span class="checkbox-item__hint">Выбрать значение</span>
     </span>
   `;
   return label;
@@ -330,8 +327,6 @@ function collectOptions(key) {
 function render() {
   const filteredItems = state.items.filter(matchesFilters);
 
-  elements.totalCount.textContent = String(state.items.length);
-  elements.visibleCount.textContent = String(filteredItems.length);
   elements.resultsState.textContent = filteredItems.length
     ? `Найдено кейсов: ${filteredItems.length}`
     : "По выбранным условиям ничего не найдено.";
